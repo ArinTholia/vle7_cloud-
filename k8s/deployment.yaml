@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vle7-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vle7-app
+  template:
+    metadata:
+      labels:
+        app: vle7-app
+    spec:
+      containers:
+      - name: vle7-container
+        image: arintholia/vle7-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
